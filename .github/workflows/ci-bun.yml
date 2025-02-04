@@ -24,3 +24,6 @@ jobs:
       - name: ESLint check
         run: bun run lint
         # scriptsに "lint": "eslint ." 等を設定している場合
+      - name: Run tests
+        run: bun run test
+        # scriptsに "test": "jest" 等を設定している場合

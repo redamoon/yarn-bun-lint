@@ -23,3 +23,7 @@ jobs:
 
       - name: ESLint check
         run: yarn lint
+
+      - name: Run tests
+        run: yarn test
+        # scriptsに "test": "jest" 等を設定している場合
