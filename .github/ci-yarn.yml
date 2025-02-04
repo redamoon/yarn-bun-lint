@@ -1,0 +1,25 @@
+name: CI (Yarn)
+
+on:
+  pull_request:
+    branches:
+      - develop-yarn  # PR先ブランチが 'develop-yarn' の場合のみ実行
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies (Yarn)
+        run: yarn install
+
+      - name: ESLint check
+        run: yarn lint
