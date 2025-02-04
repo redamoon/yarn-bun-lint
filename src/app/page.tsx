@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const title = "Create Next App Bun";
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -13,6 +14,7 @@ export default function Home() {
           height={38}
           priority
         />
+        <p>{title}</p>
         <ol>
           <li>
             Get started by editing <code>src/app/page.tsx</code>.
