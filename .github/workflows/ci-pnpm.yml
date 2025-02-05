@@ -13,11 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # Specify the Node.js version you need
-
       - name: Install pnpm
         run: npm install -g pnpm
 
@@ -30,4 +25,3 @@ jobs:
 
       - name: Run tests
         run: pnpm run test
-        # scriptsに "test": "jest" 等を設定している場合
