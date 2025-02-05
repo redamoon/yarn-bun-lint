@@ -1,0 +1,29 @@
+name: CI (Bun)
+
+on:
+  pull_request:
+    branches:
+      - develop-bun  # PR先ブランチが 'develop-bun' の場合のみ実行
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: 'latest'
+
+      - name: Install dependencies (Bun)
+        run: bun install
+
+      - name: ESLint check
+        run: bun run lint
+        # scriptsに "lint": "eslint ." 等を設定している場合
+      - name: Run tests
+        run: bun run test
+        # scriptsに "test": "jest" 等を設定している場合
