@@ -1,0 +1,33 @@
+name: CI (pnpm)
+
+on:
+  pull_request:
+    branches:
+      - develop-pnpm  # PR先ブランチが 'develop-pnpm' の場合のみ実行
+
+jobs:
+  build-and-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Specify the Node.js version you need
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies (pnpm)
+        run: pnpm install
+
+      - name: ESLint check
+        run: pnpm run lint
+        # scriptsに "lint": "eslint ." 等を設定している場合
+
+      - name: Run tests
+        run: pnpm run test
+        # scriptsに "test": "jest" 等を設定している場合
