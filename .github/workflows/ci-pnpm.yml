@@ -30,4 +30,3 @@ jobs:
 
       - name: Run tests
         run: pnpm run test
-        # scriptsに "test": "jest" 等を設定している場合
